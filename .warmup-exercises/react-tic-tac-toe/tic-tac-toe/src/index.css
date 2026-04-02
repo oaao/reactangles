@@ -1,0 +1,19 @@
+.square {
+
+  background: #fff;
+  border: 1px solid #999;
+
+  float: left;  /* Element floats to the left within its container. */
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+
+  margin-right: -1px;  /* We're using a -1px margin to offset the 1px border width. */
+  margin-top: -1px;    /*   That way, grid edges overlap! */
+  padding: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+
+}

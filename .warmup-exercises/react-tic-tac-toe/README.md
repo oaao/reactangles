@@ -95,6 +95,8 @@ That's all for now! Just like a cooking recipe, once we have those ingredients l
 
 Let's just set it up with a static value of `X` initially.
 
+We'll use a simple button element, since playing the game means clicking the squares.
+
 ```jsx
 // src/components/Square.jsx
 export default function Square() {
@@ -104,6 +106,99 @@ export default function Square() {
 }
 ```
 
-We'll style this out and implement state handling once we have our layout set up.
-
 You can import this into `App.jsx` and render out just a `<Square />` for a quick test.
+
+```jsx
+// src/App.jsx
+// our components
+import Square from './components/Square';
+
+function App() {
+
+  return (
+    <Square />
+  )
+}
+
+export default App
+```
+
+4. We'll do a bit of basic styling for the `Square` component now.
+
+Normally, I'd want to do this as a separate overall pass, but we don't have much to do here and the game grid won't really make sense without us having an actual grid of squares.
+
+Since this project isn't too complicated, we'll just do all our CSS in the main `index.css`:
+
+
+```css
+// src/index.css
+.square {
+
+  background: #fff;
+  border: 1px solid #999;
+
+  float: left;
+  width: 34px;
+
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+
+  line-height: 34px;
+  height: 34px;
+}
+```
+
+Comments explaining each property can be found in `index.css`.
+
+Our `main.jsx` - the entrypoint of the application - is importing the `index.css`.
+
+---
+
+If we run the project, we can see the square styling at work:
+
+![square](./.images/step4-square.png)
+
+Instead of just one `Square`, you can string a few of them together to see one row of our game board:
+
+```jsx
+// src/App.jsx
+import Square from './components/Square';
+
+function App() {
+
+  /* The <> </> is a Fragment: 
+       https://react.dev/reference/react/Fragment
+
+     JSX should return one top-level node, so when we have multiple
+     we wrap it in what's basically a placeholder node.
+
+     This saves us from having to spam empty <div> elements / wrapper components just to satisfy that requirement.
+  */
+
+  return (
+    <>
+      <Square />
+      <Square />
+      <Square />
+    </>
+  )
+}
+
+export default App
+```
+
+![square](./.images/step4-row.png)
+
+Optionally, notice the double thickness of the border if we take out the `-1px` margins from our CSS so the squares no longer overlap by the border width: 
+
+![square](./.images/step4-margins.png)
+
+(We don't want this, so remember to replace those `-1px` margins before moving on!)
+
+---
+
