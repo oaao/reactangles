@@ -1,14 +1,10 @@
 // our components
-import Square from './components/Square';
+import GameGrid from './components/GameGrid';
 
 function App() {
 
   return (
-    <>
-      <Square />
-      <Square />
-      <Square />
-    </>
+    <GameGrid />
   )
 }
 

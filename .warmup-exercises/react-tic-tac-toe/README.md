@@ -131,7 +131,7 @@ Since this project isn't too complicated, we'll just do all our CSS in the main 
 
 
 ```css
-// src/index.css
+/* src/index.css */
 .square {
 
   background: #fff;
@@ -202,3 +202,71 @@ Optionally, notice the double thickness of the border if we take out the `-1px` 
 
 ---
 
+5. There's a better way of laying out our game, though: a container component that lays out unit `Squares` into a 3x3 grid.
+
+Let's make a new component called `GameGrid` that does this, with some basic layout styling:
+
+```jsx
+// src/components/GameGrid.jsx
+import Square from './Square';
+
+export default function GameGrid() {
+
+  // spamming 9 Squares is goofy, but we'll revisit
+
+  return (
+    <>
+      <div className="grid">
+        <Square />
+        <Square />
+        <Square />
+        <Square />
+        <Square />
+        <Square />
+        <Square />
+        <Square />
+        <Square />
+      </div>
+
+    </>
+  )
+}
+```
+
+
+```css
+/* src/index.css */
+.square { /* contents unchanged */ }
+
+
+/* Uses CSS grid to cleanly lay out columns.
+
+   Note how they're 33px wide - just like how
+   .square is 34px wide *minus* the 1px border for overlap!
+*/
+.grid {
+  display: grid;
+  grid-template-columns: 33px 33px 33px;
+}
+```
+
+Pop the `GameGrid` in our `App.jsx` main component, and voila:
+
+
+```jsx
+// our components
+import GameGrid from './components/GameGrid';
+
+function App() {
+
+  // much cleaner!
+
+  return (
+    <GameGrid />
+  )
+}
+
+export default App
+```
+
+![grid](./.images/step5-grid.png)

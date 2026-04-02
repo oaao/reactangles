@@ -17,3 +17,13 @@
   text-align: center;
 
 }
+
+/* Uses CSS grid to cleanly lay out columns.
+
+   Note how they're 33px wide - just like how
+   .square is 34px wide *minus* the 1px border for overlap!
+*/
+.grid {
+  display: grid;
+  grid-template-columns: 33px 33px 33px;
+}
