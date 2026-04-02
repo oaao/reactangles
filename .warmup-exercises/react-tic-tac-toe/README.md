@@ -292,6 +292,26 @@ So what do we need?
   - track whose turn it is, to determine whether to pass `X` or `O`
   - change the value of a `Square` when it's clicked
 
+So:
+- first, we need to change `Square` so the value it displays is received as a prop
+- then, we make `GameGrid` pass that value
+- then, we implement logic in `GameGrid` to determine what value to pass
+- finally, we fire that logic when a `Square` is clicked.
+
 Let's get to it!
 
 ---
+
+6. Instead of a static value, let's make `Square` receive a value via props.
+
+I prefer to [destructure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring) the entire props object to specifically name what props get used in the function signature.
+
+That way, you know exactly what the component takes in right away, instead of having to read the entire implementation of a component to find that out later.
+
+```jsx
+export default function Square({ value }) {
+  return (
+    <button className="square">{ value }</button>
+  )
+}
+```
