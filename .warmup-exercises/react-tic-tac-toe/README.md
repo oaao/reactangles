@@ -42,3 +42,21 @@ npm create vite@latest
     - variant:   JavaScript + React Compiler    
  '
  ```
+
+2. Clean up the starter project to start with a clean slate.
+
+```jsx
+// src/index.css -> empty
+// src/App.css   -> empty
+
+// App.jsx
+function App() {
+
+  return (
+    <>
+    </>
+  )
+}
+
+export default App
+````
