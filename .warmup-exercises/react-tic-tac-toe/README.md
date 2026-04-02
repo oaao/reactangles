@@ -60,3 +60,50 @@ function App() {
 
 export default App
 ````
+
+---
+
+Now let's take a quick pause and plan out our initial setup of the tic-tac-toe game - just the components we need, and some of the initial logic/state for them.
+
+A tic tac toe game has:
+
+- a grid,
+- of 9 squares,
+- which can be empty, X, or O
+
+
+```jsx
+[][][]
+[][][]
+[][][]
+``` 
+
+So we'll want:
+
+- a unit `Square` component, which
+  - has borders
+  - shows X, O, or blank in the Square
+- a `GameGrid` component, which
+  - creates a 3x3 grid of `Square` components
+  - sets the value of a square when it's clicked
+
+That's all for now! Just like a cooking recipe, once we have those ingredients laid out, we can *then* get to work on how they all work together interactively in the overall game logic.
+
+---
+
+3. Make the `Square` component. 
+
+Let's just set it up with a static value of `X` initially.
+
+```jsx
+// src/components/Square.jsx
+export default function Square() {
+    return (
+        <button className="square">X</button>
+    )
+}
+```
+
+We'll style this out and implement state handling once we have our layout set up.
+
+You can import this into `App.jsx` and render out just a `<Square />` for a quick test.
