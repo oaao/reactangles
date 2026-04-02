@@ -270,3 +270,28 @@ export default App
 ```
 
 ![grid](./.images/step5-grid.png)
+
+---
+
+OK, so that's our board layout set up!
+
+Our next step is making our `Square` components interactive, so that clicking them changes the value.
+
+To do this, we'll be using our old pal, [React state](https://react.dev/learn/managing-state).
+
+Basic refresher: state stores data that persists across component re-renders, and every time we change state, the component automatically re-renders.
+
+So what do we need?
+
+- the value inside each `Square`:
+  - should start blank
+  - should have a dynamic value
+- the `GameGrid` thus needs to:
+  - tell each `Square` what its value is
+  - initialise each `Square` with a blank value
+  - track whose turn it is, to determine whether to pass `X` or `O`
+  - change the value of a `Square` when it's clicked
+
+Let's get to it!
+
+---
